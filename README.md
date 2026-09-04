@@ -74,9 +74,12 @@ Magnetic_field_&_Acceleration_Sensors/
 │   └── Dependencies/                 # Thư viện footprint & 3D STEP linh kiện
 │       ├── ul_MMC5983MA/             # 3D Model & Footprints cảm biến từ trường
 │       └── ul_ASM330LHHTR/           # 3D Model & Footprints cảm biến gia tốc
-├── firmware/                         # Mã nguồn vi điều khiển ESP32
-│   └── esp32_wifi_telemetry/
-│       └── esp32_wifi_telemetry.ino  # Code thu thập dữ liệu & truyền qua Wi-Fi
+├── firmware/                         # Mã nguồn vi điều khiển kép (Dual MCU)
+│   ├── stm32_firmware/               # Mã nguồn STM32L4xx HAL đọc mẫu cảm biến I2C/UART
+│   │   ├── Core/Src/main.c           # Chương trình chính xử lý mẫu từ trường & IMU
+│   │   └── supercap_test.ioc         # File cấu hình chân STM32CubeMX
+│   └── esp32_wifi_telemetry/         # Mã nguồn ESP32 Arduino IDE
+│       └── esp32_wifi_telemetry.ino  # Code Server Web 3D Dashboard & WebSocket Telemetry
 ├── docs/                             # Tài liệu kỹ thuật dự án
 ├── .gitignore                        # Cấu hình lọc file rác KiCad & IDE
 ├── LICENSE                           # Giấy phép bản quyền nguồn mở MIT
